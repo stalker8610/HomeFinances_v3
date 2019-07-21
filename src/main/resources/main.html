@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home finances, ver. 3.1</title>
+    <style type="text/css">
+   .block_accounts {
+    overflow: scroll;
+    width: 40%;
+    height: 300px;
+    border: solid 1px black;
+    padding: 10px;
+    float: left;
+   }
+
+   .block_budgetrows {
+    overflow: scroll;
+    width: 55%;
+    height: 300px;
+    border: solid 1px black;
+    padding: 10px;
+
+   }
+   .block_records {
+    overflow: scroll;
+    width: 96%;
+    height: 500px;
+    border: solid 1px black;
+    padding: 10px;
+   }
+  </style>
+</head>
+<!--<frameset cols="20%, 80%" frameborder="1">
+    <frameset rows="30%, 70%" frameborder="1">
+        <frame src="accounts.html">
+
+
+        <frame src="budgetrows.html">
+    </frameset>
+    <frame src="records.html">
+</frameset>-->
+
+<body>
+    <div class ="block_accounts">
+        <H3>Accounts</H3>
+        <form action="./addaccount" method="POST">
+            New account: <input type = "text" name="account_name" required="1"/>
+            <input type="submit" value = "Add"/>
+        </form>
+        <br>
+        <table border="1" width="100%">
+            <tr>
+                <td width="10%" bgcolor="#DDDDDD">ID</td>
+                <td width="80%" bgcolor="#DDDDDD">Name</td>
+                <td width="10%" bgcolor="#DDDDDD">Command</td>
+            </tr>
+        ==Accounts==
+        </table>
+
+
+    </div>
+    <div class = "block_budgetrows">
+        <H3>Budget rows</H3>
+        <form action="./addbudgetrow" method="POST">
+            New budget row: <input type = "text" name="budget_row_name" required/>
+            <input type="submit" value = "Add"/>
+        </form>
+        <br>
+        <table border="1" width="100%">
+            <tr>
+                <td width="10%" bgcolor="#DDDDDD">ID</td>
+                <td width="80%" bgcolor="#DDDDDD">Name</td>
+                <td width="10%" bgcolor="#DDDDDD">Command</td>
+            </tr>
+            ==BudgetRows==
+        </table>
+     </div>
+
+
+    <div class ="block_records">
+        <H3>Records</H3>
+        <form action="./addrecord" method="POST">
+            New record:
+            <select name="record_account_sender" required ="1">
+                <option disabled>Choose account from list...</option>
+                ==RecordListOfAccounts==
+            </select>
+            <input type = "date" name="record_date" required title="date of operation"/>
+            <select name="record_budget_row" required ="1">
+                <option disabled>Choose budget row from list...</option>
+                ==RecordListOfBudgetRows==
+            </select>
+            <input type="number" required min="1" title="sum of operation" name="record_sum">
+            <input type="submit" value = "Add"/>
+        </form>
+        <br>
+        <table border="1" width="100%">
+            <tr>
+                <td width="10%" bgcolor="#DDDDDD">ID</td>
+                <td width="10%" bgcolor="#DDDDDD">Date</td>
+                <td width="20%" bgcolor="#DDDDDD">Account</td>
+                <td width="20%" bgcolor="#DDDDDD">Budget row</td>
+                <td width="60%" bgcolor="#DDDDDD">Sum</td>
+                <td width="10%" bgcolor="#DDDDDD">Command</td>
+            </tr>
+            ==Records==
+        </table>
+    </div>
+
+
+</body>
+
+</html>
